@@ -39,6 +39,9 @@ gem "jbuilder"
 # Use devise for user authentication
 gem 'devise'
 
+# Use cancan for user authentication
+gem 'cancancan'
+
 # Use mail catcher to test emails in the development environment
 gem 'mailcatcher'
 
