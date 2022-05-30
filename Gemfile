@@ -36,6 +36,12 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
+# Use devise for user authentication
+gem 'devise'
+
+# Use mail catcher to test emails in the development environment
+gem 'mailcatcher'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data"
 
