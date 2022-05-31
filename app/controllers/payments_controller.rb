@@ -14,6 +14,7 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   def new
     @payment = Payment.new
+    @categories = Category.all.order(:name)
   end
 
   # GET /payments/1/edit
@@ -22,6 +23,9 @@ class PaymentsController < ApplicationController
   # POST /payments or /payments.json
   def create
     @payment = Payment.new(payment_params)
+    @payment.categories << Category.find(params[:payment][:categories].to_i)
+    @categories = Category.all
+    @payment.user_id = current_user.id
 
     respond_to do |format|
       if @payment.save

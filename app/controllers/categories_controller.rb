@@ -10,7 +10,17 @@ class CategoriesController < ApplicationController
   end
 
   # GET /categories/1
-  def show; end
+  def show
+    data = Category.find_by_sql("SELECT categories.*,
+    COALESCE(SUM(payments.amount), 0) as total_amount
+      from categories
+      LEFT JOIN categories_payments ON categories.id = categories_payments.category_id
+      LEFT JOIN expenses on categories_payments.payments_id = payments.id
+      WHERE categories.user_id = #{current_user.id}
+      AND categories.id = #{params[:id]} GROUP BY categories.id ORDER BY categories.name ASC")
+    @category = data[0]
+    @payments = @category.payments.order(created_at: :desc)
+  end
 
   # GET /categories/new
   def new
@@ -40,7 +50,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to category_url(@category), notice: 'Category was successfully updated.' }
+        format.html { redirect_to categories_path, notice: 'Category was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -53,7 +63,6 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
