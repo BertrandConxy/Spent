@@ -1,5 +1,7 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: %i[show edit update destroy]
+  before_action :authenticate_user!
+  load_and_authorize_resource param_method: :payment_params
 
   # GET /payments or /payments.json
   def index
