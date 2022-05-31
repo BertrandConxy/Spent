@@ -1,10 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @category %>
-
-<div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %>
-
-  <%= button_to "Destroy this category", @category, method: :delete %>
+<div class='d-flex align-items-center justify-content-around bg-primary p-3'>
+    <%= link_to categories_path do%>
+      <i class="fa fa-arrow-left text-white fs-2"></i>
+    <%end%>
+    <h2 class='display-4 text-white mx-3'>Transactions</h2>
+    <%=link_to edit_category_path(@category) do%>
+      <i class="fa fa-pen-to-square text-white fs-2"></i>
+    <%end%>
 </div>
+<%= render partial:'shared/category' , locals: {category: @category} %>

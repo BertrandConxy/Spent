@@ -1,11 +1,11 @@
 <section class='d-flex flex-column m-0'>
-  <div class='d-flex justify-content-between align-items-center bg-primary p-3'>
+  <div class='d-flex justify-content-center align-items-center bg-primary p-3'>
     <h2 class='display-5 text-white'>Categories</h2>
-    <%= link_to "New category", new_category_path, class: 'btn btn-success' %>
   </div>
 
   <div class="container my-3">
     <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4">
+      <%if @categories.present?%>
       <% @categories.each do |category| %>
         <div class="col">
           <%= link_to category, class: 'link text-dark' do %>
@@ -13,7 +13,12 @@
           <%end%>
         </div>
       <% end %>
+      <%else%>
+        <p><strong>No categories added yet</strong></p>
+      <%end%>
     </div>
   </div>
-
+  <div>
+    <%= link_to "New category", new_category_path, class: 'btn btn-success w-100' %>
+  </div>
 </section>
