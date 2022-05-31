@@ -19,3 +19,19 @@
   top: 8px;
   padding: 5px;
 }
+
+.card-img-top {
+    object-fit: cover;
+}
+
+.card-img-holder {
+    width: fit-content;
+}
+
+.icon {
+    border: none;
+}
+
+.link {
+  text-decoration: none;
+}

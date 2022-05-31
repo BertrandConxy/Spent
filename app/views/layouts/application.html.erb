@@ -14,9 +14,9 @@
 
   <body>
    <%= render partial: "shared/navbar" %>
-  <div class="container">
-    <p class="notice text-center bg-success display-6 m-0"><%= notice %></p>
-    <p class="notice text-center bg-danger display-6 m-0"><%= alert %></p>
+  <div class="container-fluid mx-0 px-0">
+    <p class="notice text-center bg-success display-6 m-0 text-white"><%= notice %></p>
+    <p class="notice text-center bg-danger display-6 m-0 text-white"><%= alert %></p>
     <%= yield %>
   </div>
   </body>

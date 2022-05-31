@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-img-holder">
+    <img src=<%=category.icon%> class="card-img-top" alt="category icon">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%=category.name%></h5>
+      <p class="card-text">Total: <%=category.name%></p>
+      <%= button_to category_path(category.id), method: :delete, class: 'btn icon' do%>
+        <i class="fa fa-trash text-danger fs-2"></i>
+      <%end%>
+  </div>
+</div>

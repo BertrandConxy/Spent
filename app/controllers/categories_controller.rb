@@ -4,12 +4,12 @@ class CategoriesController < ApplicationController
   load_and_authorize_resource param_method: :category_params
 
 
-  # GET /categories or /categories.json
+  # GET /categories
   def index
-    @categories = Category.all
+    @categories = current_user.categories
   end
 
-  # GET /categories/1 or /categories/1.json
+  # GET /categories/1
   def show; end
 
   # GET /categories/new
@@ -20,17 +20,18 @@ class CategoriesController < ApplicationController
   # GET /categories/1/edit
   def edit; end
 
-  # POST /categories or /categories.json
+  # POST /categories
   def create
+    default_icon = 'https://cdn-icons-png.flaticon.com/512/1077/1077279.png'
     @category = Category.new(category_params)
+    @category.icon = default_icon if params[:category][:icon].blank?
+    @category.user = current_user
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to category_url(@category), notice: 'Category was successfully created.' }
-        format.json { render :show, status: :created, location: @category }
+        format.html { redirect_to categories_path, notice: 'Category was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -40,10 +41,8 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to category_url(@category), notice: 'Category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
   end
