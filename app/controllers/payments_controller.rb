@@ -23,30 +23,19 @@ class PaymentsController < ApplicationController
   # POST /payments or /payments.json
   def create
     @payment = Payment.new(payment_params)
-    @payment.categories << Category.find(params[:payment][:categories].to_i)
-    @categories = Category.all
+    @payment.categories << Category.find(params[:category_id])
+
+    another_category = params[:payment][:cat_id]
+    unless another_category.blank?
+      @payment.categories << Category.find(another_category)
+    end
     @payment.user_id = current_user.id
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to payment_url(@payment), notice: 'Payment was successfully created.' }
-        format.json { render :show, status: :created, location: @payment }
+        format.html { redirect_to category_path(params[:category_id]) , notice: 'Payment was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @payment.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /payments/1 or /payments/1.json
-  def update
-    respond_to do |format|
-      if @payment.update(payment_params)
-        format.html { redirect_to payment_url(@payment), notice: 'Payment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @payment }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @payment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,8 +45,7 @@ class PaymentsController < ApplicationController
     @payment.destroy
 
     respond_to do |format|
-      format.html { redirect_to payments_url, notice: 'Payment was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to category_path(params[:category_id]), notice: 'Payment was successfully destroyed.' }
     end
   end
 

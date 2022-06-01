@@ -11,14 +11,6 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
-    data = Category.find_by_sql("SELECT categories.*,
-    COALESCE(SUM(payments.amount), 0) as total_amount
-      from categories
-      LEFT JOIN categories_payments ON categories.id = categories_payments.category_id
-      LEFT JOIN expenses on categories_payments.payments_id = payments.id
-      WHERE categories.user_id = #{current_user.id}
-      AND categories.id = #{params[:id]} GROUP BY categories.id ORDER BY categories.name ASC")
-    @category = data[0]
     @payments = @category.payments.order(created_at: :desc)
   end
 

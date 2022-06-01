@@ -7,4 +7,16 @@
       <i class="fa fa-pen-to-square text-white fs-2"></i>
     <%end%>
 </div>
-<%= render partial:'shared/category' , locals: {category: @category} %>
+  <div class='d-flex align-items-center justify-content-around bg-primary p-3'>
+      <p class='text-white fs-3'>Total amount: 0</p>
+      <%= link_to new_category_payment_path(@category.id) do%>
+        <i class="fa-solid fa-plus text-white fs-1"></i>
+      <%end%>
+  </div>
+<%if @payments.present?%>
+  <%@payments.each do |payment|%>
+    <%= render partial:'shared/payment' , locals: {payment: payment} %>
+  <%end%>
+<%else%>
+  <p><strong>No payments added yet</strong></p>
+<%end%>
