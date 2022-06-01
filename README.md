@@ -12,6 +12,7 @@
 The end result should follow the following data model (this is an Entity Relationship Diagram that you are already familiar with):
 
 > ![](app/assets/images/spent-erd.png)
+
 # Built with
 - Ruby
 - Ruby on Rails
