@@ -1,14 +1,14 @@
 class PaymentsController < ApplicationController
-  before_action :set_payment, only: %i[show edit update destroy]
+  before_action :set_payment, only: %i[show destroy]
   before_action :authenticate_user!
   load_and_authorize_resource param_method: :payment_params
 
-  # GET /payments or /payments.json
+  # GET /payments
   def index
     @payments = Payment.all
   end
 
-  # GET /payments/1 or /payments/1.json
+  # GET /payments/1
   def show; end
 
   # GET /payments/new
@@ -17,10 +17,7 @@ class PaymentsController < ApplicationController
     @categories = Category.all.order(:name)
   end
 
-  # GET /payments/1/edit
-  def edit; end
-
-  # POST /payments or /payments.json
+  # POST /payments
   def create
     @payment = Payment.new(payment_params)
     @payment.categories << Category.find(params[:category_id])
@@ -38,7 +35,7 @@ class PaymentsController < ApplicationController
     end
   end
 
-  # DELETE /payments/1 or /payments/1.json
+  # DELETE /payments/1
   def destroy
     @payment.destroy
 
