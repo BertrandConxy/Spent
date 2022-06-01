@@ -26,14 +26,12 @@ class PaymentsController < ApplicationController
     @payment.categories << Category.find(params[:category_id])
 
     another_category = params[:payment][:cat_id]
-    unless another_category.blank?
-      @payment.categories << Category.find(another_category)
-    end
+    @payment.categories << Category.find(another_category) unless another_category.blank?
     @payment.user_id = current_user.id
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to category_path(params[:category_id]) , notice: 'Payment was successfully created.' }
+        format.html { redirect_to category_path(params[:category_id]), notice: 'Payment was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end

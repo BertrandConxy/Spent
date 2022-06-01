@@ -1,17 +1,17 @@
 .new_user {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 
 .welcome {
-    height: 100vh;
-    overflow: hidden;
-    background-image: linear-gradient(#3186C6, #0af885);
+  height: 100vh;
+  overflow: hidden;
+  background-image: linear-gradient(#3186c6, #0af885);
 }
 
 .logo {
-    margin-bottom: 5rem;
+  margin-bottom: 5rem;
 }
 
 .top-corner {
@@ -22,15 +22,15 @@
 }
 
 .card-img-top {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .image-div {
-    width: 20%;
+  width: 20%;
 }
 
 .icon {
-    border: none;
+  border: none;
 }
 
 .link {

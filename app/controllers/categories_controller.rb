@@ -3,7 +3,6 @@ class CategoriesController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource param_method: :category_params
 
-
   # GET /categories
   def index
     @categories = current_user.categories.includes(:payments)
