@@ -319,6 +319,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   sprockets-rails
+  sqlite3
   stimulus-rails
   turbo-rails
   tzinfo-data
