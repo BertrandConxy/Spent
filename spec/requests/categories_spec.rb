@@ -58,20 +58,20 @@ RSpec.describe "Categories", type: :request do
 
   let(:invalid_attributes) { { icon: 'https://example.com', user: @current_user } }
     context 'with valid parameters' do
-      it 'creates a new Food' do
+      it 'creates a new category' do
         expect do
           post categories_url, params: { category: valid_attributes }
         end.to change(Category, :count).by(1)
       end
 
-      it 'redirects to the foods list page' do
+      it 'redirects to the categories list page' do
         post categories_url, params: { category: valid_attributes }
         expect(response).to redirect_to(categories_path)
       end
     end
 
     context 'with invalid parameters' do
-      it 'does not create a new Food' do
+      it 'does not create a new category' do
         expect do
           post categories_url, params: { category: invalid_attributes }
         end.to change(Category, :count).by(0)
