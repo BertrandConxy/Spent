@@ -24,8 +24,8 @@
     object-fit: cover;
 }
 
-.card-img-holder {
-    width: fit-content;
+.image-div {
+    width: 20%;
 }
 
 .icon {

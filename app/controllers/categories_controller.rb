@@ -6,12 +6,13 @@ class CategoriesController < ApplicationController
 
   # GET /categories
   def index
-    @categories = current_user.categories
+    @categories = current_user.categories.includes(:payments)
   end
 
   # GET /categories/1
   def show
     @payments = @category.payments.order(created_at: :desc)
+    @amount = @category.payments.sum(:amount)
   end
 
   # GET /categories/new
