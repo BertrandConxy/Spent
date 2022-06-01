@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "Categories", type: :request do
+RSpec.describe 'Categories', type: :request do
   before(:each) do
     @current_user = create(:user)
     @category = create(:category, user: @current_user)
     login_as(@current_user)
   end
-  describe "GET /categories" do
-    before (:each) do
+  describe 'GET /categories' do
+    before(:each) do
       get categories_path
     end
 
@@ -54,9 +54,9 @@ RSpec.describe "Categories", type: :request do
   end
 
   describe 'POST /create' do
-  let(:valid_attributes) { { name: 'name', icon: 'https://example.com', user: @current_user } }
+    let(:valid_attributes) { { name: 'name', icon: 'https://example.com', user: @current_user } }
 
-  let(:invalid_attributes) { { icon: 'https://example.com', user: @current_user } }
+    let(:invalid_attributes) { { icon: 'https://example.com', user: @current_user } }
     context 'with valid parameters' do
       it 'creates a new category' do
         expect do

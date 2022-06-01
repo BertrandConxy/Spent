@@ -6,7 +6,7 @@ RSpec.feature 'category_payments page', type: :feature do
     @category = create(:category, user: @user)
     @payments = create_list(:payment, 3, user_id: @user.id)
     @payments.each do |payment|
-        payment.categories << @category
+      payment.categories << @category
     end
     login_as(@user)
     visit category_path(@category.id)

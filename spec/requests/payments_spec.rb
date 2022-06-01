@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Payments", type: :request do
+RSpec.describe 'Payments', type: :request do
   before(:each) do
     @current_user = create(:user)
     @category = create(:category, user: @current_user)
@@ -15,7 +15,7 @@ RSpec.describe "Payments", type: :request do
   end
 
   describe 'POST /create' do
-  let(:valid_attributes) { { name: 'name', amount: 9.99, user: @current_user } }
+    let(:valid_attributes) { { name: 'name', amount: 9.99, user: @current_user } }
     context 'with valid parameters' do
       it 'creates a new payment' do
         expect do

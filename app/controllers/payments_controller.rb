@@ -16,6 +16,7 @@ class PaymentsController < ApplicationController
     @payment = Payment.new
     @categories = Category.all.order(:name)
   end
+
   # POST /payments
   def create
     @payment = Payment.new(payment_params)
