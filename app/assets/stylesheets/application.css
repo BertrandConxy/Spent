@@ -36,3 +36,18 @@
 .link {
   text-decoration: none;
 }
+
+.buttons{
+  position: absolute;
+  bottom: 25%;
+}
+
+.btn-green {
+  background-color: #0af885;
+  color: #fff;
+  border-radius: 0;
+  border: none;
+  padding: 8px;
+  font-size: 1rem;
+  margin-right: 10px;
+}
