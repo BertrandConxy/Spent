@@ -42,7 +42,6 @@ gem 'devise'
 gem 'cancancan'
 
 # Use mail catcher to test emails in the development environment
-gem 'mailcatcher'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'
