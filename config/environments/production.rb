@@ -66,13 +66,12 @@ Rails.application.configure do
 
   # Configuration for email deliveries
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'cspent.herokuapp.com', protocol: 'https' }
-  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: 'cspent.herokuapp.com', protocol: 'http' }
   config.action_mailer.smtp_settings = {
     user_name:      Rails.application.credentials.dig(:gmail_smtp, :email),
     password:       Rails.application.credentials.dig(:gmail_smtp, :password),
-    domain:         'gmail.com',
     address:       'smtp.gmail.com',
     port:          '587',
     authentication: :plain,
