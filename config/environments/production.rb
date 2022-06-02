@@ -72,7 +72,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name:      Rails.application.credentials.dig(:gmail_smtp, :email),
     password:       Rails.application.credentials.dig(:gmail_smtp, :password),
-    domain:         'cspent.herokuapp.com',
+    domain:         'gmail.com',
     address:       'smtp.gmail.com',
     port:          '587',
     authentication: :plain,
