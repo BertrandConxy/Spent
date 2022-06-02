@@ -1,15 +1,53 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.new_user {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.welcome {
+  height: 100vh;
+  overflow: hidden;
+  background-image: linear-gradient(#3186c6, #0af885);
+}
+
+.logo {
+  margin-bottom: 5rem;
+}
+
+.top-corner {
+  position: absolute;
+  right: 0;
+  top: 8px;
+  padding: 5px;
+}
+
+.card-img-top {
+  object-fit: cover;
+}
+
+.image-div {
+  width: 20%;
+}
+
+.icon {
+  border: none;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.buttons {
+  position: absolute;
+  bottom: 25%;
+}
+
+.btn-green {
+  background-color: #0af885;
+  color: #fff;
+  border-radius: 0;
+  border: none;
+  padding: 8px;
+  font-size: 1rem;
+  margin-right: 10px;
+}
