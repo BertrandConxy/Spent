@@ -83,3 +83,9 @@ group :test do
   gem 'shoulda-matchers'
   gem 'webdrivers'
 end
+
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
