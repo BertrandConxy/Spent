@@ -1,6 +1,6 @@
 require "active_support/core_ext/integer/time"
 
-Rails.application.routes.default_url_options[:host] = "spent-production.up.railway.app"
+Rails.application.routes.default_url_options[:host] = "spent.up.railway.app"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -46,7 +46,7 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
   config.action_cable.allowed_request_origins = [/https:\/\/*/]
 
-  config.hosts << "spent-production.up.railway.app"
+  config.hosts << "spent.up.railway.app"
 
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
