@@ -46,7 +46,7 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
   config.action_cable.allowed_request_origins = [/https:\/\/*/]
 
-  Rails.application.config.hosts << "https://spent-production.up.railway.app/"
+  config.hosts << "spent-production.up.railway.app"
 
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
