@@ -1,6 +1,6 @@
 require "active_support/core_ext/integer/time"
 
-Rails.application.config.hosts << "spent-production.up.railway.app"
+Rails.application.config.hosts << "https://spent-production.up.railway.app/"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -45,6 +45,9 @@ Rails.application.configure do
   # config.action_cable.url = "wss://example.com/cable"
   # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
   config.action_cable.allowed_request_origins = [/https:\/\/*/]
+
+  Rails.application.config.hosts << "https://spent-production.up.railway.app/"
+
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
